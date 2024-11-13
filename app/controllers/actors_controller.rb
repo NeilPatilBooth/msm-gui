@@ -5,7 +5,7 @@ class ActorsController < ApplicationController
 
     render({ :template => "actor_templates/index" })
   end
-
+#howdy
   def show
     the_id = params.fetch("path_id")
 
