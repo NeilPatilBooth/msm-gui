@@ -9,17 +9,17 @@
   </div>
 
   <div>
-    <label for ="year_field">Title</label>
+    <label for ="year_field">Year</label>
     <input id="year_field" type ="text" name="the_year">
   </div>
 
   <div>
-    <label for ="duration_field">Title</label>
+    <label for ="duration_field">Duration</label>
     <input id="duration_field" type ="text" name="the_duration">
   </div>
 
   <div>
-    <label for ="description_field">Title</label>
+    <label for ="description_field">Description</label>
     <input id="description_field" type ="text" name="the_description">
   </div>
 
@@ -91,7 +91,11 @@
       
       <% the_director = matching_directors.at(0) %>
 
-      <%= the_director.name %>
+      <% if the_director == nil %>
+        Uh oh! We weren't able to find a director for this movie.
+      <% else %>
+        <%= the_director.name %>
+      <% end %>
     </td>
 
     <td>

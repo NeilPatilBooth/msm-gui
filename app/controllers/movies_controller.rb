@@ -12,10 +12,10 @@ class MoviesController < ApplicationController
     m.image = params.fetch("the_image")
     m.director_id = params.fetch("the_director_id")
 
-
+    
     m.save 
 
-    redirect_to("movies")
+    redirect_to("/movies")
     #Retrieve user's inputs from params
     #Create a record in the movie table 
     #Populate each column with the user input 
