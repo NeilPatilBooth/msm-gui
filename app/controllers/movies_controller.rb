@@ -1,4 +1,27 @@
 class MoviesController < ApplicationController
+  def update
+    # Get the ID out of params
+    m_id = params.fetch("the_id")
+
+    # Look up the existing record
+    matching_records = Movie.where({ :id => m_id })
+    the_movie = matching_records.at(0)
+
+    # Overwrite each column with the values from user inputs
+    the_movie.title = params.fetch("the_title")
+    the_movie.year = params.fetch("the_year")
+    the_movie.duration = params.fetch("the_duration")
+    the_movie.description = params.fetch("the_description")
+    the_movie.image = params.fetch("the_image")
+    the_movie.director_id = params.fetch("the_director_id")
+
+    # Save
+    the_movie.save
+    
+    # Redirect to the movie details page
+    redirect_to("/movies/#{the_movie.id}")
+  end
+
 
   def create
     #Paramters look like:
@@ -11,7 +34,6 @@ class MoviesController < ApplicationController
     m.description = params.fetch("the_description")
     m.image = params.fetch("the_image")
     m.director_id = params.fetch("the_director_id")
-
     
     m.save 
 
@@ -19,7 +41,6 @@ class MoviesController < ApplicationController
     #Retrieve user's inputs from params
     #Create a record in the movie table 
     #Populate each column with the user input 
-
     #Redirect the user back to the /movies URL
   end
 
