@@ -11,6 +11,32 @@
 </div>
 <hr>
 
+<hr>
+
+<form action="/modify_director_record/<%= @the_director.id %>" method="post">
+
+ <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" name="query_name" value="<%= @the_director.name %>">
+  </div>
+  <div>
+    <label for="Dob">Dob</label>
+    <input id="Dob" type="text" name="query_dob" value="<%= @the_director.dob %>">
+  </div>
+  <div>
+    <label for="bio">Bio</label>
+    <input id="bio" type="text" name="query_bio" value="<%= @the_director.bio %>">
+  </div>
+  <div>
+    <label for="image">Image</label>
+    <input id="image" type="text" name="query_image" value="<%= @the_director.image %>">
+  </div>
+  
+  <button>
+    Update director
+  </button>
+</form>
+
 <dl>
   <dt>
     Name
