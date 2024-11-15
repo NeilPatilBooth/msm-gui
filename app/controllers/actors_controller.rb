@@ -20,7 +20,19 @@ class ActorsController < ApplicationController
   end
   
   
-  
+  def destroy
+    the_id = params.fetch("an_id") #an_id from the get query in terminal that was ran
+
+    matching_records = Actor.where({ :id => the_id})
+
+    the_actor = matching_records.at(0)
+
+    the_actor.destroy
+
+    redirect_to("/actors")
+  end 
+
+
   
   def index
     matching_actors = Actor.all
